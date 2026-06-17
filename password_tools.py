@@ -2,44 +2,52 @@ import secrets
 import string
 import hashlib
 import math
+import random
+
+class LengthError(Exception):
+    pass
 
 def generate_password(length):
     
+    if length < 6:
+        raise LengthError("Password length should be at least 6 characters.")
+
+    password = [
+        secrets.choice(string.ascii_lowercase),
+        secrets.choice(string.ascii_uppercase),
+        secrets.choice(string.digits),
+        secrets.choice(string.punctuation)
+    ]
+
     characters = (
         string.ascii_letters +
         string.digits +
         string.punctuation
     )
 
-    password = ''.join(secrets.choice(characters) for i in range(length))
+    for i in range(length - 4):
+        password.append(secrets.choice(characters))
+
+    random.SystemRandom().shuffle(password)
+
+    password = ''.join(password)
 
     return password
 
 def check_strength(password):
 
-    score = 0
+    entropy = calculate_entropy(password)
 
-    if len(password) >= 8:
-        score += 1
-    
-    if any(char.islower() for char in password):
-        score += 1
-
-    if any(char.isupper() for char in password):
-        score += 1
-
-    if any(char.isdigit() for char in password):
-        score += 1
-
-    if any(char in string.punctuation for char in password):
-        score += 1
-
-    if score <= 2:
+    if entropy < 30:
+        return "Very Weak"
+    elif entropy < 40:
         return "Weak"
-    elif score == 3:
+    elif entropy < 60:
         return "Moderate"
-    else:   
+    elif entropy < 130:
         return "Strong"
+    else:
+        return "Very Strong"
     
 
 def sha256_hash(password):
