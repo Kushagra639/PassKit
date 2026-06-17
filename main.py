@@ -4,7 +4,7 @@ from pathlib import Path
 wordlist_path = Path(__file__).parent / "rockyou.txt"
 
 print("="*49)
-print("            Password Security Toolkit")
+print("       PassKit - Password Security Toolkit")
 print("="*49)
 
 while True:
@@ -24,7 +24,11 @@ while True:
             password = pt.generate_password(length)
             print(f"Generated Password: {password}")
         except ValueError:
-            print("Invalid input. Please enter a valid number.")
+            print(" ❌ Error: Invalid input. Please enter a valid number.")
+        except pt.LengthError as le:
+            print(f" ❌ Error: {le}")
+        except Exception as e:
+            print(f"Invalid input. Please enter a valid number: {e}")
 
     elif choice == '2':
         try:
