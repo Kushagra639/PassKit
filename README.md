@@ -1,6 +1,6 @@
 # 🔑 PassKit - Password Security Toolkit
 
-A lightweight Python-based Password Security Toolkit designed to help users generate, analyze, and understand secure passwords.
+A Python-based Password Security Toolkit with a modern CustomTkinter GUI that helps users generate, analyze, and understand secure passwords.
 
 This project was built as part of my cybersecurity learning journey and demonstrates concepts such as password generation, password strength analysis, hashing, entropy calculation, and dictionary attacks.
 
@@ -12,12 +12,14 @@ This project was built as part of my cybersecurity learning journey and demonstr
 
 Generate cryptographically secure passwords using Python's built-in `secrets` and `random` modules.
 
-Generated passwords include:
+Generated passwords are guaranteed to contain:
 
 - Uppercase letters
 - Lowercase letters
 - Numbers
 - Special characters
+
+This ensures that every generated password satisfies basic complexity requirements.
 
 ---
 
@@ -68,59 +70,108 @@ Includes error handling and validation for user inputs to improve reliability an
 
 ---
 
+### 🖥️ Graphical User Interface
+
+Includes a modern GUI built with CustomTkinter featuring:
+
+- Dark / Light theme switching
+- Interactive menus
+- Popup notifications
+- Password analysis screens
+- Dictionary attack visualization
+
+The GUI makes cybersecurity concepts more accessible and user-friendly.
+
+---
+
 ## 📸 Screenshots
 
 ### Main Menu
 
 <img width="432" height="238" alt="image" src="https://github.com/user-attachments/assets/ab0a17f3-91b0-4a5b-a385-f0af551b5935" />
+<img width="1536" height="813" alt="image" src="https://github.com/user-attachments/assets/8f4a7505-8517-4672-b705-1e836c1c280d" />
+<img width="1536" height="816" alt="image" src="https://github.com/user-attachments/assets/9c914d1e-378d-49f5-b0bc-d7b8a3ec16ed" />
 
 
 ### Password Generation
 
 <img width="432" height="187" alt="image" src="https://github.com/user-attachments/assets/0c3dc904-6092-4ee9-9ef0-c7e3f2216e1a" />
+<img width="1536" height="813" alt="image" src="https://github.com/user-attachments/assets/e5723aa5-b457-4117-96dc-309af75b4c80" />
+<img width="1536" height="817" alt="image" src="https://github.com/user-attachments/assets/97256c41-599f-4550-a3aa-10b1b3d67b2a" />
 
 
 ### Password Strength Analysis
 
 <img width="432" height="182" alt="image" src="https://github.com/user-attachments/assets/cb3d191a-184e-4774-bf77-e38611ca4bae" />
+<img width="1535" height="816" alt="image" src="https://github.com/user-attachments/assets/153ef737-d72e-4dc0-92a2-66c667cc89b0" />
 
 
 ### Hashing a Password
 
 <img width="582" height="187" alt="image" src="https://github.com/user-attachments/assets/e57446d5-78c1-4bc5-a759-17dd35760476" />
+<img width="1536" height="816" alt="image" src="https://github.com/user-attachments/assets/52ea7956-eea1-4c2a-9a63-313bf3fa31d8" />
 
 
 ### Calculate Entropy
 
 <img width="428" height="186" alt="image" src="https://github.com/user-attachments/assets/ac22bfc0-2b4e-431d-bb8c-2524a1260c98" />
+<img width="1536" height="816" alt="image" src="https://github.com/user-attachments/assets/3cbcea64-717f-45cd-b467-ceeb8f2ac70b" />
 
 
 ### Dictionary Attack Demo
 
 <img width="721" height="193" alt="image" src="https://github.com/user-attachments/assets/122b01fc-099c-4784-91be-eb989ade2bed" />
 <img width="717" height="195" alt="image" src="https://github.com/user-attachments/assets/4a1a21b7-cd79-4e89-90dc-e1762d8c76a4" />
+<img width="1536" height="816" alt="image" src="https://github.com/user-attachments/assets/f9c5c145-7bda-40c2-9255-36713892af80" />
+<img width="1536" height="812" alt="image" src="https://github.com/user-attachments/assets/7cb4c689-20f0-4e60-b473-c423c7999ffe" />
+<img width="1533" height="817" alt="image" src="https://github.com/user-attachments/assets/eba19453-8f76-4e1b-968a-f10071e57b32" />
 
+
+#### ⚠️ Educational Security Demonstration
+
+The dictionary attack feature is included strictly for educational purposes and demonstrates how weak passwords can be recovered using common password databases such as RockYou.
+
+This functionality is intended to promote stronger password practices and cybersecurity awareness.
 
 ---
 
 ## 🛠️ Technologies Used
 
 - Python 3
+- CustomTkinter
 - Secrets
 - Random
 - Hashlib
 - Math
 - String
 - Pathlib
+- Tkinter
 
 ---
 
 ## 📦 Installation
 
-No external libraries are required.
+Install dependencies:
 
-- Download the code  [`main.py`](/main.py), [`password_tools.py`](/password_tools.py)
-- Download the [`rockyou.txt`](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt) wordlist.
+```bash
+pip install customtkinter
+```
+
+### Download the Source Code
+
+*GUI version* (**Recommended**):
+
+- [`main_gui.py`](/main_gui.py)
+- [`password_tools.py`](/password_tools.py)
+- [`rockyou.txt`](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt) wordlist
+- [`pastel_theme.json`](/pastel_theme.json)
+
+Alternatively, the *console version* can be used:
+
+- [`main.py`](/main.py)
+- [`password_tools.py`](/password_tools.py)
+- [`rockyou.txt`](https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt) wordlist
+
 
 **Store all files in the same project folder; otherwise, you will have to change the path of all files in the code.**
 
@@ -129,6 +180,12 @@ No external libraries are required.
 ## ▶️ Usage
 
 Run:
+
+```bash
+python main_gui.py
+```
+
+or
 
 ```bash
 python main.py
@@ -210,12 +267,13 @@ This project helped me practice:
 
 Planned future enhancements include:
 
-- GUI version using CustomTkinter
-- Password history management
-- Multiple hashing algorithms
+- Multiple hashing algorithms (SHA-1, SHA-512, bcrypt)
 - Password policy auditing
+- Password history management
 - Exportable reports
+- Have I Been Pwned integration
 - Password manager integration
+- Performance optimization for large wordlists
 
 ---
 
